@@ -28,8 +28,7 @@ class PeopleController < ApplicationController
   
   def update
   @person = Person.find(params[:id])
-  
-  if @people.update(person_params)
+  if @person.update(person_params)
   redirect_to people_path
   else 
   render :edit  
@@ -44,7 +43,7 @@ class PeopleController < ApplicationController
   private
   
   def person_params
-  params.require(:person).permit(:first_name, :last_name, :age, :hair_color, :eye_color, :gender, :alive)
+  params.require(:person,).permit(:first_name, :last_name, :age, :hair_color, :eye_color, :gender, :alive)
   end
   
   end
